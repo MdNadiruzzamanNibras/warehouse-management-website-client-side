@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useInventory from '../../../../Hooks/useInventory';
 import Inventory from '../Inventory/Inventory';
 
 const Inventories = () => {
-    const [inventories, setInvertories]= useState([])
-    useEffect(()=>{
-        fetch('http://localhost:5000/inventory')
-        .then(res=>res.json())
-        .then(data=> setInvertories(data))
-    },[])
+    const [inventories]= useInventory()
+    
     return (
         <div>
            <h1>number: {inventories.length}</h1>
             <h2>The Collection</h2>
-            {
-                inventories.slice(0, 5).map(inventory=> <Inventory key={inventory._id} inventory={inventory}></Inventory>)
+            <div className="container">
+                <div className="row">
+                {
+                inventories.slice(0, 6).map(inventory=> <Inventory key={inventory._id} inventory={inventory}></Inventory>)
             }
+                </div>
+            </div>
         </div>
     );
 };
