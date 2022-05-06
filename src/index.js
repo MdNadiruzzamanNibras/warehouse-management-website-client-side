@@ -12,7 +12,7 @@ root.render(
     <App />
   </React.StrictMode>
   </BrowserRouter>
-  
+  // REACT_APP_apiKey=:AIzaSyAP_0vNu7Pb5ICDhdNFMo3srS1jG6dIZfU
 );
 
 // If you want to start measuring performance in your app, pass a function
