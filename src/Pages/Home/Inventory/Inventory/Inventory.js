@@ -7,7 +7,6 @@ const Inventory = ({inventory}) => {
     const navigateUPdate = id =>{
         navigate(`/inventory/${id}`)
     }
-    console.log(inventory);
     return (
         <div className='card col-lg-4'>
             <img src={img} alt="" />
