@@ -6,6 +6,7 @@ import SingleInventory from './Pages/Home/Inventory/SingleInventory/SingleInvent
 import Login from './Pages/Login/Login/Login';
 import Registration from './Pages/Login/Registration/Registration';
 import ManageInventories from './Pages/Manage Inventory/Manage Inventories/ManageInventories';
+import NotFound from './Pages/NotFound/NotFound';
 import Header from './Pages/Shared/Header/Header';
 
 
@@ -20,6 +21,7 @@ function App() {
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/registration' element={<Registration></Registration>}></Route>
        <Route path='/manageitem' element={<ManageInventories></ManageInventories>}></Route>
+       <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
     </div>
   );
