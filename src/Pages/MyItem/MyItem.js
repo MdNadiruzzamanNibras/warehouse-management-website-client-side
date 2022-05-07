@@ -9,9 +9,7 @@ const MyItem = () => {
     useEffect(()=>{
         const getmyItem = async()=>{
             const email = user?.email
-            console.log(email);
             const url=`http://localhost:5000/myItem?email=${email}`
-            console.log(url);
             const {data} = await axios.get(url)
             setmyItems(data)
         }
@@ -20,7 +18,7 @@ const MyItem = () => {
     },[user])
     return (
         <div>
-            {myItems.length}
+            {myItems.map(myItem=> <div key={myItem._id}> {myItem.name} </div>)}
         </div>
     );
 };
