@@ -6,7 +6,7 @@ import useInventory from '../../../Hooks/useInventory';
 const ManageInventories = () => {
     const [inventories, setInvertories]= useInventory()
     const deleteInventory =id=>{
-        const processed = window.confirm('Are you sure delete the inventory')
+        const processed = window.confirm('Are you sure delete the item')
         if(processed){
             const url= `http://localhost:5000/inventory/${id}`
             fetch(url,{

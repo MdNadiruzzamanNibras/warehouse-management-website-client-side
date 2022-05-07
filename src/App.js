@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import MyItem from './MyItem/MyItem';
+import AddItem from './Pages/AddItem/AddItem';
 import Home from './Pages/Home/Home/Home';
 import Inventories from './Pages/Home/Inventory/Inverntories/Inventories';
 import SingleInventory from './Pages/Home/Inventory/SingleInventory/SingleInventory';
@@ -21,6 +23,8 @@ function App() {
        <Route path='/login' element={<Login></Login>} ></Route>
        <Route path='/registration' element={<Registration></Registration>}></Route>
        <Route path='/manageitem' element={<ManageInventories></ManageInventories>}></Route>
+       <Route path='/addItem' element={<AddItem></AddItem>}></Route>
+       <Route path='/myItem' element={<MyItem></MyItem>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
     </div>
