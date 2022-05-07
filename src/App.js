@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import MyItem from './MyItem/MyItem';
 import AddItem from './Pages/AddItem/AddItem';
 import Home from './Pages/Home/Home/Home';
 import Inventories from './Pages/Home/Inventory/Inverntories/Inventories';
@@ -8,6 +7,7 @@ import SingleInventory from './Pages/Home/Inventory/SingleInventory/SingleInvent
 import Login from './Pages/Login/Login/Login';
 import Registration from './Pages/Login/Registration/Registration';
 import ManageInventories from './Pages/Manage Inventory/Manage Inventories/ManageInventories';
+import MyItem from './Pages/MyItem/MyItem';
 import NotFound from './Pages/NotFound/NotFound';
 import Header from './Pages/Shared/Header/Header';
 

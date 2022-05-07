@@ -11,9 +11,28 @@ const SingleInventory = () => {
         .then(data=>setInvertory(data))
     }
         ,[])
+       const [minusDeliver, setMInusDeliver]= useState(0)
+       const handleDel= ()=>{
+        let Quntity = inventory.quantity
+       let minusQuan = Quntity - 1
+        setMInusDeliver(minusQuan)
+    }
+       useEffect(()=>{},[minusDeliver])
     return (
-        <div>
-            {inventory.name}
+        <div key={inventory._id}>
+            <div className="container">
+                <div className="row">
+                    <div>
+                        <img src={inventory.img} alt="" />
+                    </div>
+                    <div>
+                        
+                        <h2>{inventory.name}</h2>
+                        <h3>{minusDeliver}</h3>
+                    </div>
+                    <button onClick={handleDel}>delivered</button>
+                </div>
+            </div>
         </div>
     );
 };
