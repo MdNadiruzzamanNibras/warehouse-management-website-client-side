@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ const SingleInventory = () => {
     const {inventoryId} = useParams()
     const [inventory, setInvertory] = useState({})
     useEffect(()=>{
-        const url =`http://localhost:5000/inventory/${inventoryId}`
+        const url =`https://sleepy-citadel-14654.herokuapp.com/inventory/${inventoryId}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setInvertory(data))
@@ -15,20 +14,20 @@ const SingleInventory = () => {
        const [minusDeliver, setMInusDeliver]= useState(0)
        
        const handleDel = id=>{
-           const Quantity= inventory.quantity - 1
+           const Quantity= parseInt(inventory.quantity) - 1
            if(Quantity){
                console.log('its work');
-               const url =`http://localhost:5000/inventory/${id}`
+               const url =`https://sleepy-citadel-14654.herokuapp.com/inventory/${id}`
                fetch(url,{
                    method: 'PUT',
                    headers:{
                     'Accept':'application/json',
                     'content-type':'application/json'
                    },
-                   body: JSON.stringify()
+                   body: JSON.stringify(Quantity)
                })
                .then(res=>res.json())
-               .then(data=> console.log(data))
+               .then(data=> setMInusDeliver(data))
            }
 
        }

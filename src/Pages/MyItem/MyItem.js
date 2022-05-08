@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -13,7 +14,7 @@ const MyItem = () => {
     useEffect(()=>{
         const getmyItem = async()=>{
             const email = user?.email
-            const url=`http://localhost:5000/myItem?email=${email}`
+            const url=`https://sleepy-citadel-14654.herokuapp.com/myItem?email=${email}`
             try{
                 const {data} = await axios.get(url,{
                     headers:{
@@ -36,7 +37,7 @@ const MyItem = () => {
     const deleteMYItem =id=>{
         const processed = window.confirm('Are you sure delete the item')
         if(processed){
-            const url= `http://localhost:5000/myItem/${id}`
+            const url= `https://sleepy-citadel-14654.herokuapp.com/myItem/${id}`
             fetch(url,{
                 method:'DELETE',
                
@@ -50,14 +51,20 @@ const MyItem = () => {
         }
     }
     return (
-        <div>
-            {myItems && myItems.map(Item=> <div key={Item._id}> {Item.name} 
+        <Table striped bordered hover>
+            {myItems && myItems.map(Item=> <tr style={{height:'100px'}} className='d-flex border-1 ' key={Item._id}>
+                <td><img className='img-fluid' src={Item.img} alt="" /></td>
+                <td> <h3>{Item.name}</h3></td>
+                <td><h5>${Item.price}</h5></td>
+                <td><p><small title={Item.description}>{Item.description.slice(0, 50)}</small></p></td>
+                <td> <h6>Supplier:{Item.supplier}</h6></td>
             
-            <button onClick={()=>deleteMYItem(Item._id)}>delete</button> 
+            <button className='btn' onClick={()=>deleteMYItem(Item._id)}>delete</button> 
             
-            </div>)}
+            </tr>)}
+            
             <ToastContainer/>
-        </div>
+            </Table>
     );
 };
 
