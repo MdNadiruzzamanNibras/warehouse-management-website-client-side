@@ -27,7 +27,7 @@ const ManageInventories = () => {
             <div className="container">
                 <div className="row">
                 {
-                inventories && inventories.map(inventory=> <div key={inventory._id} className='card col-lg-4'>
+                inventories && inventories.map(inventory=> <div key={inventory._id} className='d-flex '>
                 <img src={inventory.img} alt="" />
                 <h3>{inventory.name}</h3>
                 <h5>${inventory.price}</h5>
