@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
+import { Button, Card } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -52,15 +53,25 @@ const MyItem = () => {
     return (
         <div >
             {myItems && myItems.map(Item=> <div key={Item._id}>
-                <img className='img-fluid' src={Item.img} alt="" />
-                 <h3>{Item.name}</h3>
-                <h5>${Item.price}</h5>
-                <p><small title={Item.description}>{Item.description.slice(0, 50)}</small></p>
-                 <h6>Supplier:{Item.supplier}</h6>
+                <Card className='col-lg-4' style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={Item.img} />
+  <Card.Body>
+    <Card.Title>{Item.name}</Card.Title>
+    <Card.Subtitle >${Item.price}</Card.Subtitle >
+
+    <Card.Text>
+    <small>{Item.description}</small>
+    </Card.Text>
+    <h6>Supplier:{Item.supplier}</h6>
+    <Button  className='btn btn-danger' onClick={()=>deleteMYItem(Item._id)}>delete</Button>
+    <Link to={'/addItem'}><Button >Add New Item</Button></Link>
+  </Card.Body>
+</Card>
             
-            <button className='btn' onClick={()=>deleteMYItem(Item._id)}>delete</button> 
+           
             
             </div>)}
+            
             
             <ToastContainer/>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Card } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import useInventory from '../../../Hooks/useInventory';
 
@@ -27,15 +28,22 @@ const ManageInventories = () => {
             <div className="container">
                 <div className="row">
                 {
-                inventories && inventories.map(inventory=> <div key={inventory._id} className='d-flex '>
-                <img src={inventory.img} alt="" />
-                <h3>{inventory.name}</h3>
-                <h5>${inventory.price}</h5>
-                <p><small>{inventory.description}</small></p>
-                <h6>Supplier:{inventory.supplier}</h6>
-               <button onClick={()=>deleteInventory(inventory._id)}>delete</button>
-              <ToastContainer></ToastContainer>
-            </div>)
+                inventories && inventories.map(inventory=>  <Card className='col-lg-4' style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={inventory.img} />
+                <Card.Body>
+                  <Card.Title>{inventory.name}</Card.Title>
+                  <Card.Subtitle >${inventory.price}</Card.Subtitle >
+              
+                  <Card.Text>
+                  <small>{inventory.description}</small>
+                  </Card.Text>
+                  <h6>Supplier:{inventory.supplier}</h6>
+                  <Button  onClick={()=>deleteInventory(inventory._id)}>delete</Button>
+                </Card.Body>
+              </Card>
+               
+             
+           )
             }
                 </div>
             </div>
