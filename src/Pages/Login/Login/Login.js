@@ -49,7 +49,7 @@ const Login = () => {
         }
     }
     return (
-        <div className='mx-auto' style={{width:'400px'}}>
+        <div className='mx-auto'>
            <form onSubmit={handleLogin}  >
            <input type="text" name="email" id="" className='w-50 my-2 mx-auto py-2 d-block' />
            <input type="password" name="password" id="" className='w-50 my-2 py-2 mx-auto d-block' />
