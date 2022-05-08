@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init'
 import useToken from '../../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
@@ -56,8 +57,9 @@ const Login = () => {
            {errorMassage}
            <input type="submit" className='mx-auto d-block' value="Login" />
            <div className='d-flex mx-auto'>
-           <Link to='/registration'>registration</Link>
-           <button onClick={handleResetPass}>Reset Password</button>
+           <p>New to The Traveler? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={registerNavigate}>Please Register</Link> </p>
+            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={handleResetPass}>Reset Password</button> </p>
+           <SocialLogin></SocialLogin>
            </div>
            <ToastContainer/>
            </form>
