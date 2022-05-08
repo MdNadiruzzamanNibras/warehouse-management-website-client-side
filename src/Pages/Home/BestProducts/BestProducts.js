@@ -3,13 +3,14 @@ import best from '../../../image/best sell/download.jpg'
 const BestProducts = () => {
     return (
         <div className='mx-auto'>
-            <h1 > Best Sell</h1>
+            
         <div className='col-lg-6 d-flex mx-auto my-3 '>
             
            <div>
               <img src={ best} alt="" /> 
                </div> 
                 <div>
+                    <h1>Our best Sell</h1>
                     <h2>Name: Whole Wheat Atta</h2>
                     <h4>Price:$1</h4>
                    <h3> product Details</h3>
