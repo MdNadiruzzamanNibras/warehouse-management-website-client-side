@@ -28,7 +28,7 @@ const SingleInventory = () => {
                     <div>
                         
                         <h2>{inventory.name}</h2>
-                        <h3>{minusDeliver}</h3>
+                        <h3>{inventory.quantity}</h3>
                     </div>
                     <button onClick={handleDel}>delivered</button>
                 </div>

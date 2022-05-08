@@ -13,7 +13,8 @@ const AddItem = () => {
         price:event.target.price.value,
         description:event.target.description.value,
         img:event.target.img.value,
-        quantity:event.target.quantity.value
+        quantity:event.target.quantity.value,
+        supplier:event.target.supplier.value
       }
      axios.post('http://localhost:5000/inventory',addmyItem)
      .then(response=>{
@@ -25,21 +26,7 @@ const AddItem = () => {
      })
    }
   
-//   const onSubmit = data =>{ console.log(data)
-//     const email = user?.email
-//         const url =`http://localhost:5000/inventory`;
-//         fetch(url, {
-//             method:'POST', 
-//             headers:{
-//                 'content-type': 'application/json'
-//             },
-//             body:JSON.stringify(data)
-//         })
-//         .then(res=>res.json())
-//         .then(result=> console.log(result))
 
-
-// }
    
   return (
     <div className='w-50 mx-auto'>
@@ -50,7 +37,8 @@ const AddItem = () => {
           <input type="text" name='email' value={user?.email} placeholder='name' required readOnly/>
           <input type="text" name='description' placeholder='description' required />
           <input type="text" name='img' placeholder='img' required />
-          <input type="text" name='quantity' placeholder='Quantity' required />
+          <input type="number" name='quantity' placeholder='Quantity' required />
+          <input type="text" name='supplier' placeholder='Supplier' required />
           <input type="submit" value="add item" />
           
     </form>

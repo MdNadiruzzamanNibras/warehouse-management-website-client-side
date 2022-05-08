@@ -1,8 +1,13 @@
+import { async } from '@firebase/util';
+import axios from 'axios';
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init'
 const Login = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
+   const from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword,
         user,
@@ -10,11 +15,15 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
-    const handleLogin =event=>{
+    const handleLogin =async (event)=>{
         event.preventDefault();
-        const email= event.target.email.value;
-        const password= event.target.password.value;
-        signInWithEmailAndPassword(email, password)
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        await signInWithEmailAndPassword(email, password)
+        const {data}= await axios.post('http://localhost:5000/login', {email})
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
+       
     }
     return (
         <div>
