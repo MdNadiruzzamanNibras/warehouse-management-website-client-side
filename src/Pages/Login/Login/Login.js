@@ -17,19 +17,19 @@ const Login = () => {
             loading,
             error,
           ] = useSignInWithEmailAndPassword(auth);
-        // const [token] = useToken(user)
+        const [token] = useToken(user)
         if(user){
             console.log(user, 'user')}
         if(loading){
             return<Loading></Loading>
         }
-        console.log(user);
+
         if(user){
             navigate(from, { replace: true })
         }
-        // if(token){
-        //     navigate(from, { replace: true })
-        // }
+        if(token){
+            navigate(from, { replace: true })
+        }
         let errorMassage
         if(error){
              errorMassage = <div className='text-danger'>Error: {error?.message}</div>

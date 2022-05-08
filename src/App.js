@@ -13,6 +13,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import RequireAuth from './Pages/Shared/RequireAuth/RequireAuth';
+import Takereviews from './Pages/Takereviews/Takereviews';
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
        </RequireAuth>}></Route>
        <Route path='/myItem' element={<RequireAuth>
         <MyItem></MyItem>
+       </RequireAuth>}></Route>
+       <Route path='/takeReview' element={<RequireAuth>
+        <Takereviews></Takereviews>
        </RequireAuth>}></Route>
        <Route path='/blog' element={<Blogs></Blogs>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>

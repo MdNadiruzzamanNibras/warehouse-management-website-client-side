@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -51,20 +50,20 @@ const MyItem = () => {
         }
     }
     return (
-        <Table striped bordered hover>
-            {myItems && myItems.map(Item=> <tr style={{height:'100px'}} className='d-flex border-1 ' key={Item._id}>
-                <td><img className='img-fluid' src={Item.img} alt="" /></td>
-                <td> <h3>{Item.name}</h3></td>
-                <td><h5>${Item.price}</h5></td>
-                <td><p><small title={Item.description}>{Item.description.slice(0, 50)}</small></p></td>
-                <td> <h6>Supplier:{Item.supplier}</h6></td>
+        <div >
+            {myItems && myItems.map(Item=> <div key={Item._id}>
+                <img className='img-fluid' src={Item.img} alt="" />
+                 <h3>{Item.name}</h3>
+                <h5>${Item.price}</h5>
+                <p><small title={Item.description}>{Item.description.slice(0, 50)}</small></p>
+                 <h6>Supplier:{Item.supplier}</h6>
             
             <button className='btn' onClick={()=>deleteMYItem(Item._id)}>delete</button> 
             
-            </tr>)}
+            </div>)}
             
             <ToastContainer/>
-            </Table>
+            </div>
     );
 };
 
