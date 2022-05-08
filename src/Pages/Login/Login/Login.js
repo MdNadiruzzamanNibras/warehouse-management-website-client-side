@@ -1,5 +1,3 @@
-import { async } from '@firebase/util';
-import axios from 'axios';
 import React from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -12,34 +10,42 @@ const Login = () => {
     const location = useLocation()
     const [sendPasswordResetEmail, sending, errorReset] = useSendPasswordResetEmail(auth);
     const from = location.state?.from?.pathname || "/";
-    const [
-        signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
-        const [token] = useToken(user)
+   
+        const [
+            signInWithEmailAndPassword,
+            user,
+            loading,
+            error,
+          ] = useSignInWithEmailAndPassword(auth);
+        // const [token] = useToken(user)
+        if(user){
+            console.log(user, 'user')}
         if(loading){
-            <Loading></Loading>
+            return<Loading></Loading>
         }
-        
-        if(token){
+        console.log(user);
+        if(user){
             navigate(from, { replace: true })
         }
+        // if(token){
+        //     navigate(from, { replace: true })
+        // }
         let errorMassage
         if(error){
              errorMassage = <div className='text-danger'>Error: {error?.message}</div>
         }
-    const handleLogin =async (event)=>{
+    const handleLogin = (event)=>{
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        await signInWithEmailAndPassword(email, password)
-        
-       
+         signInWithEmailAndPassword(email, password)
        
     }
     const handleResetPass =async event=>{
         const email = event.target.email.value
         if(email){
             await sendPasswordResetEmail(email)
-            toast('Yo')
+            toast('Your passaword change')
         }
     }
     return (

@@ -14,6 +14,8 @@ const Registration = () => {
       ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
       const [token] =useToken(user)
       const navigate = useNavigate()
+      if(user){
+        console.log(user, 'user')}
       if(token){
           navigate('/')
       }

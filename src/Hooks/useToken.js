@@ -6,14 +6,14 @@ const useToken = user=>{
     const [token, setToken] = useState('')
     useEffect(()=>{
         const getToken = async ()=>{
-            console.log(user);
+            console.log(user?.user?.email);
             const email = user?.user?.email
             if(email)
             {const {data}= await axios.post('https://sleepy-citadel-14654.herokuapp.com/login', {email})
             setToken(data.accessToken)
             localStorage.setItem('accessToken', data.accessToken)}
         }
-        getToken()
+        if(user?.user?.email){getToken()}
     },[user])
     return [token]
 }
