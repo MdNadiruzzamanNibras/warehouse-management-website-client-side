@@ -2,7 +2,10 @@ import React from 'react';
 import best from '../../../image/best sell/download.jpg'
 const BestProducts = () => {
     return (
-        <div className='col-lg-6'>
+        <div className='mx-auto'>
+            <h1 > Best Sell</h1>
+        <div className='col-lg-6 d-flex mx-auto my-3 '>
+            
            <div>
               <img src={ best} alt="" /> 
                </div> 
@@ -21,6 +24,7 @@ const BestProducts = () => {
                    </ul>
                    <h6>Suppliar: TEER</h6>
                 </div>
+        </div>
         </div>
     );
 };

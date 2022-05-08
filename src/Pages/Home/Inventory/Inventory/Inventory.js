@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import '../inventoryCss/inventory.css'
 const Inventory = ({inventory}) => {
     const navigate = useNavigate()
     const {_id, img, description, name, supplier, price,} = inventory
