@@ -9,7 +9,7 @@ const Inventory = ({inventory}) => {
     }
     return (
         
-            <Card className='col-lg-4' style={{ width: '18rem' }}>
+            <Card className='col-lg-4 g-2' style={{ width: '18rem' }}>
   <Card.Img variant="top" src={img} />
   <Card.Body>
     <Card.Title>{name}</Card.Title>

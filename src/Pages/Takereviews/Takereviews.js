@@ -21,7 +21,9 @@ const Takereviews = () => {
     return (
         <div className='container'>
             <div className="row">
-            <div className='mx-auto bg-primary'>
+            <div className='Formdesign'>
+            <h4 style={{textAlign: 'center',
+    fontSize: '50px', margin:'20px auto', color:'#367d84'}}>Gives Feedback</h4>
             <form >
             <input type="text" className='' name="name" id="" placeholder='Your Name' required/>
             <br />

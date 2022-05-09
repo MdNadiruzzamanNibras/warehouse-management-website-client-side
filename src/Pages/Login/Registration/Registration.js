@@ -1,10 +1,11 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import useToken from '../../../Hooks/useToken';
-
+import '../../FormDesign/FormDesign.css'
+import Loading from '../../Shared/Loading/Loading';
 const Registration = () => {
     const [
         createUserWithEmailAndPassword,
@@ -19,7 +20,9 @@ const Registration = () => {
       if(token){
           navigate('/')
       }
-      
+      if(loading){
+          return <Loading></Loading>
+      }
       const handleRegistration = event=>{
           event.preventDefault();
           const name = event.target.name.value;
@@ -30,14 +33,19 @@ const Registration = () => {
       }
 
     return (
-        <div>
-            <form className='from-design' onSubmit={handleRegistration}>
+        <div className='Formdesign'>
+            <h4 style={{textAlign: 'center',
+    fontSize: '50px', margin:'20px auto', color:'#3e9cb9'}}>Please Registration</h4>
+            <form  onSubmit={handleRegistration}>
             <input type="text" name="name" id="" className='w-50 my-2 mx-auto py-2 d-block' />
             <input type="text" name="email" id="" className='w-50 my-2 mx-auto py-2 d-block' />
             <input type="password" name="password" id="" className='w-50 my-2 mx-auto py-2 d-block' />
-            <input type="submit" className='mx-auto d-block' value="registration" />
+            <button className='form-btn'>Registration</button>
             </form>
             <SocialLogin></SocialLogin>
+            <div className='w-50 my-3 mx-auto'>
+            <p>Already Account? <Link to='/login' className='text-primary pe-auto text-decoration-none' >Please Login</Link></p>
+            </div>
         </div>
     );
 };

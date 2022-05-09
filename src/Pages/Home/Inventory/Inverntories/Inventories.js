@@ -7,8 +7,9 @@ const Inventories = () => {
     
     return (
         <div>
-           <h1>number: {inventories.length}</h1>
-            <h2>The Collection</h2>
+           
+            <h2 style={{textAlign: 'center',
+    fontSize: '100px'}}>The Collection</h2>
             <div className="container">
                 <div className="row">
                 {

@@ -6,12 +6,13 @@ import auth from '../../../firebase.init'
 import useToken from '../../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import '../../FormDesign/FormDesign.css'
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [sendPasswordResetEmail, sending, errorReset] = useSendPasswordResetEmail(auth);
     const from = location.state?.from?.pathname || "/";
-   
+    
         const [
             signInWithEmailAndPassword,
             user,
@@ -50,20 +51,22 @@ const Login = () => {
         }
     }
     return (
-        <div className='mx-auto w-50 bg-warning'>
+        <div className='Formdesign'>
+            <h4 style={{textAlign: 'center',
+    fontSize: '50px', margin:'20px auto', color:'#3e9cb9'}}>Please Login</h4>
            <form onSubmit={handleLogin}  >
            <input type="text" name="email" id="" className='w-50 my-2 mx-auto py-2 d-block' />
            <input type="password" name="password" id="" className='w-50 my-2 py-2 mx-auto d-block' />
            {errorMassage}
-           <input type="submit" className='mx-auto d-block' value="Login" />
-           <div className='w-50 mx-auto d-flex'>
-           <p> <Link to="/registration" className='text-primary pe-auto text-decoration-none' >Please Register</Link> </p>
-            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={handleResetPass}>Reset Password</button> </p>
+           <button className='form-btn'>Login</button>
            
-           </div>
-           <ToastContainer/>
            </form>
+           <ToastContainer/>
            <SocialLogin></SocialLogin>
+           <div className='w-50 my-3 mx-auto'>
+           <p>New to Authentic Grocery? <Link to="/registration" className='text-primary pe-auto text-decoration-none'>Please Register</Link> </p>
+            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={ handleResetPass}>Reset Password</button> </p>
+            </div>
         </div>
     );
 };
