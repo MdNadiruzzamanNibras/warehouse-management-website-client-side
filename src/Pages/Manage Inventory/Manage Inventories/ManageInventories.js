@@ -10,7 +10,7 @@ const ManageInventories = () => {
     const deleteInventory =id=>{
         const processed = window.confirm('Are you sure delete the item')
         if(processed){
-            const url= `http://localhost:5000/inventory/${id}`
+            const url= `https://sleepy-citadel-14654.herokuapp.com/inventory/${id}`
             fetch(url,{
                 method:'DELETE',
                
@@ -39,7 +39,7 @@ const ManageInventories = () => {
                   <small>{inventory.description}</small>
                   </Card.Text>
                   <h6>Supplier:{inventory.supplier}</h6>
-                  <Button  onClick={()=>deleteInventory(inventory._id)}>delete</Button>
+                  <Button className='bg-danger' onClick={()=>deleteInventory(inventory._id)}>delete</Button>
                   <Link to={'/addItem'}><Button >Add New Item</Button></Link>
                 </Card.Body>
               </Card>
