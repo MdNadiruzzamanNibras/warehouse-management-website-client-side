@@ -9,7 +9,7 @@ const Inventories = () => {
         <div>
            
             <h2 style={{textAlign: 'center',
-    fontSize: '100px'}}>The Collection</h2>
+    fontSize: '100px', color:'#d87607', margin:"30px auto"}}>The Collection</h2>
             <div className="container">
                 <div className="row">
                 {

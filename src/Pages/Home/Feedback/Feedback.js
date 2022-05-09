@@ -11,9 +11,10 @@ const Feedback = () => {
     return (
         <div className='container'>
             <div className="row">
-            <h1>Customers Reviews</h1>
+            <h1 style={{textAlign: 'center',
+    fontSize: '80px', color:'#d87607', margin:'30px auto'}}>Customers Reviews</h1>
              {
-                 feedbacks.map(feedback=> <Card key={feedback._id} className='col-lg-4' style={{ width: '18rem' }} >
+                 feedbacks.map(feedback=> <Card key={feedback._id} className='col-lg-4 mx-auto' style={{ width: '18rem' }} >
                         <Card.Title>{feedback.name}</Card.Title>
                         <Card.Subtitle>{feedback.review}</Card.Subtitle>
                         </Card>)

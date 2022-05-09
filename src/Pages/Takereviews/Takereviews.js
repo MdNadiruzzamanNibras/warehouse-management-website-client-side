@@ -35,8 +35,7 @@ const Takereviews = () => {
             <br />
             <input type="number" name="phone" id="" placeholder='Your Phone number' required/>
             <br />
-             <button className='btn btn-warning' onClick={hanleReviews} type='submit'>Reviews</button>
-           
+             <button className='form-btn' onClick={hanleReviews}>Reviews</button>
             </form>
             </div>
             <ToastContainer/>

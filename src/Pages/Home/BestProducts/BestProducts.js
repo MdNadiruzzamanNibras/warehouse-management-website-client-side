@@ -4,7 +4,7 @@ const BestProducts = () => {
     return (
         <div>
             <h1 style={{textAlign: 'center',
-    fontSize: '70px',marginTop:'20px'}}>Our best Sell</h1>
+    fontSize: '70px',marginTop:'20px',color:'#d87607', margin:"30px auto"}}>Our best Sell</h1>
         <div className="container">
             <div className="row">
             <div className='col-lg-6  mx-auto my-3 '>
