@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import useInventory from '../../../Hooks/useInventory';
 
@@ -9,7 +10,7 @@ const ManageInventories = () => {
     const deleteInventory =id=>{
         const processed = window.confirm('Are you sure delete the item')
         if(processed){
-            const url= `https://sleepy-citadel-14654.herokuapp.com/inventory/${id}`
+            const url= `http://localhost:5000/inventory/${id}`
             fetch(url,{
                 method:'DELETE',
                
@@ -39,6 +40,7 @@ const ManageInventories = () => {
                   </Card.Text>
                   <h6>Supplier:{inventory.supplier}</h6>
                   <Button  onClick={()=>deleteInventory(inventory._id)}>delete</Button>
+                  <Link to={'/addItem'}><Button >Add New Item</Button></Link>
                 </Card.Body>
               </Card>
                

@@ -50,19 +50,20 @@ const Login = () => {
         }
     }
     return (
-        <div className='mx-auto'>
+        <div className='mx-auto w-50 bg-warning'>
            <form onSubmit={handleLogin}  >
            <input type="text" name="email" id="" className='w-50 my-2 mx-auto py-2 d-block' />
            <input type="password" name="password" id="" className='w-50 my-2 py-2 mx-auto d-block' />
            {errorMassage}
            <input type="submit" className='mx-auto d-block' value="Login" />
-           <div className='d-flex mx-auto'>
-           <p>New to The Traveler? <Link to="/register" className='text-primary pe-auto text-decoration-none' onClick={registerNavigate}>Please Register</Link> </p>
+           <div className='w-50 mx-auto d-flex'>
+           <p> <Link to="/registration" className='text-primary pe-auto text-decoration-none' >Please Register</Link> </p>
             <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={handleResetPass}>Reset Password</button> </p>
-           <SocialLogin></SocialLogin>
+           
            </div>
            <ToastContainer/>
            </form>
+           <SocialLogin></SocialLogin>
         </div>
     );
 };

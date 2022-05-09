@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const useInventory =()=>{
     const [inventories, setInvertories]= useState([])
     useEffect(()=>{
-        fetch('https://sleepy-citadel-14654.herokuapp.com/inventory')
+        fetch('http://localhost:5000/inventory')
         .then(res=>res.json())
         .then(data=> setInvertories(data))
     },[])

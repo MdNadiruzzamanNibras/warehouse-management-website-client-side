@@ -8,24 +8,28 @@ const SingleInventory = () => {
         const url =`https://sleepy-citadel-14654.herokuapp.com/inventory/${inventoryId}`
         fetch(url)
         .then(res=>res.json())
-        .then(data=>setInvertory(data))
+        .then(data=>{setInvertory(data)
+               setMInusDeliver(data)})
     }
         ,[])
        const [minusDeliver, setMInusDeliver]= useState(0)
        
        const handleDel = id=>{
-           const Quantity= parseInt(inventory.quantity) - 1
-           if(Quantity){
+           const Quantity= parseInt(inventory.quantity) 
+           const quantity = Quantity - 1
+           console.log(quantity);
+           if(quantity){
                console.log('its work');
-               const url =`https://sleepy-citadel-14654.herokuapp.com/inventory/${id}`
+               const url =`http://localhost:5000/inventory/${id}`
                fetch(url,{
                    method: 'PUT',
                    headers:{
-                    'Accept':'application/json',
                     'content-type':'application/json'
                    },
-                   body: JSON.stringify(Quantity)
+                   body: JSON.stringify({quantity})
+                  
                })
+              
                .then(res=>res.json())
                .then(data=> setMInusDeliver(data))
            }
@@ -42,6 +46,7 @@ const SingleInventory = () => {
                         
                         <h3>{inventory.name}</h3>
                         <h5>${inventory.price}</h5>
+                        <h6>{inventory.quantity}</h6>
                         <p><small>{inventory.description}</small></p>
                         <h6>Supplier:{inventory.supplier}</h6>
                         <button onClick={()=>handleDel(inventory._id)}>delivered</button>
