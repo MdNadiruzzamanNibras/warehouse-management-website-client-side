@@ -8,6 +8,7 @@ import auth from '../../../firebase.init';
 const Header = () => {
   const [user] = useAuthState(auth)
   const handleLogOut = ()=>{
+    localStorage.removeItem('accessToken')
     signOut(auth)
   }
     return (
