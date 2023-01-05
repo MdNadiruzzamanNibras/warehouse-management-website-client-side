@@ -10,7 +10,7 @@ const ManageInventories = () => {
     const deleteInventory =id=>{
         const processed = window.confirm('Are you sure delete the item')
         if(processed){
-            const url= `https://sleepy-citadel-14654.herokuapp.com/inventory/${id}`
+            const url= `https://warehouse-management-0zqj.onrender.com/inventory/${id}`
             fetch(url,{
                 method:'DELETE',
                

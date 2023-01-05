@@ -16,7 +16,7 @@ const AddItem = () => {
         quantity:event.target.quantity.value,
         supplier:event.target.supplier.value
       }
-     axios.post('https://sleepy-citadel-14654.herokuapp.com/inventory',addmyItem)
+     axios.post('https://warehouse-management-0zqj.onrender.com/inventory',addmyItem)
      .then(response=>{
       const {data} = response
       if(data.insertedId){

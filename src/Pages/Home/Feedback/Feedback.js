@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 const Feedback = () => {
     const [feedbacks, setFeedbacks]= useState([])
     useEffect(()=>{
-        fetch('https://sleepy-citadel-14654.herokuapp.com/feedback')
+        fetch('https://warehouse-management-0zqj.onrender.com/feedback')
         .then(res=>res.json())
         .then(data=> setFeedbacks(data))
     },[])

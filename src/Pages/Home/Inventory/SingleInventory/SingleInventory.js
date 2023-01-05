@@ -6,7 +6,7 @@ const SingleInventory = () => {
     const {inventoryId} = useParams()
     const [inventory, setInvertory] = useState({})
     useEffect(()=>{
-        const url =`https://sleepy-citadel-14654.herokuapp.com/inventory/${inventoryId}`
+        const url =`https://warehouse-management-0zqj.onrender.com/inventory/${inventoryId}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>{setInvertory(data)
@@ -21,7 +21,7 @@ const SingleInventory = () => {
            console.log(newQuauntity);
            if(newQuauntity){
                console.log('its work');
-               const url =`https://sleepy-citadel-14654.herokuapp.com/inventory/${id}`
+               const url =`https://warehouse-management-0zqj.onrender.com/inventory/${id}`
                fetch(url,{
                    method: 'PUT',
                    headers:{
@@ -44,7 +44,7 @@ const SingleInventory = () => {
     //        const newQuauntity = Quantity + restockpars
     //        console.log(newQuauntity);
     //        if(newQuauntity){
-    //            const url =`https://sleepy-citadel-14654.herokuapp.com/inventory/${id}`
+    //            const url =`https://warehouse-management-0zqj.onrender.com/inventory/${id}`
     //            fetch(url,{
     //                method: 'PUT',
     //                headers:{
