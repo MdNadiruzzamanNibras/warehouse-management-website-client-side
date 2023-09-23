@@ -6,7 +6,7 @@ import useInventory from '../../../Hooks/useInventory';
 
 
 const ManageInventories = () => {
-    const [inventories, setInvertories]= useInventory()
+    const [inventories, setInvertories, Loading]= useInventory()
     const deleteInventory =id=>{
         const processed = window.confirm('Are you sure delete the item')
         if(processed){
@@ -27,6 +27,7 @@ const ManageInventories = () => {
     return (
         <div>
             <div className="container">
+                {Loading && <p>Loading...</p>}
                 <div className="row">
                 {
                 inventories && inventories.map(inventory=>  <Card className='col-lg-4' style={{ width: '18rem' }}>
